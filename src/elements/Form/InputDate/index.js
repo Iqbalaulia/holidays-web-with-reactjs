@@ -28,12 +28,14 @@ export default function Date(props) {
 	useEffect(() => {
 		document.addEventListener("mousedown", handleClickOutside);
 
+		// membuang component ketika sudah di load
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside);
 		};
 	});
 
 	const refDate = useRef(null);
+	
 	const handleClickOutside = (event) => {
 		if (refDate && !refDate.current.contains(event.target)) {
 			setIsShowed(false);
