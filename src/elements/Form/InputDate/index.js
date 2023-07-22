@@ -2,14 +2,15 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import propTypes from "prop-types";
+
 import { DateRange } from "react-date-range";
 
 import "./index.scss";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
+import "react-date-range/dist/styles.css"; // main css file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
 import formatDate from "utils/formatDate";
-import iconCalendar from "assets/images/icons/ic_calendar.svg";
+import iconCalendar from "assets/images/icons/icon-calendar.svg";
 
 export default function Date(props) {
 	const { value, placeholder, name } = props;
@@ -28,14 +29,12 @@ export default function Date(props) {
 	useEffect(() => {
 		document.addEventListener("mousedown", handleClickOutside);
 
-		// membuang component ketika sudah di load
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside);
 		};
 	});
 
 	const refDate = useRef(null);
-	
 	const handleClickOutside = (event) => {
 		if (refDate && !refDate.current.contains(event.target)) {
 			setIsShowed(false);
