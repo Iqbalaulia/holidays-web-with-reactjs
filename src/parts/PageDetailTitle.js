@@ -7,7 +7,7 @@ import Breadcrumb from "elements/Breadcrumb";
 
 export default function PageDetailTitle({ data, breadcrumb }) {
 	return (
-		<section className="container spacing-sm">
+		<section className="container spacing-sm mt-4">
 			<Fade bottom>
 				<div className="row align-items-center">
 					<div className="col">
